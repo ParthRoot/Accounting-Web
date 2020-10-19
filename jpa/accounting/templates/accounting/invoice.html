@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>{{z1}}</title>
+
+
+    <style>
+        .head1 {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .head2 {
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        .head3 {
+            font-size: 15px;
+            font-weight: normal;
+        }
+
+        .table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 3px;
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+{% csrf_token %}
+<center style="font-size: 25px;">
+    <div class="head1">
+        Jaimin Patel Office
+    </div>
+    <div class="head2">
+        {{z}}
+    </div>
+</center>
+<div class="head3">
+    <b>Date:</b> {{y}} <br/>
+    <b>Casher:</b> &nbsp;Jaimin Patel Office
+</div>
+<hr/>
+<br/>
+
+
+<table class="table">
+
+
+    <thead>
+
+    <tr style="font-size: 13px;">
+        <th style="width: 30px;">No.</th>
+        <th style="width: 90px;">Date</th>
+        <th>Script</th>
+        <th style="width: 90px;">Amount</th>
+
+    </tr>
+
+    </thead>
+    <tbody>
+
+
+    <tr>
+        <td>{% for j in count %}{{j}}
+            <hr>
+            {% endfor %}
+        </td>
+        <td>{% for j in date %}{{j}}
+            <hr>
+            {% endfor %}
+        </td>
+        <td>{% for j in script %}{{j}}
+            <hr>
+            {% endfor %}
+        </td>
+        <td>{% for j in amount %}{{j}}
+            <hr>
+            {% endfor %}
+        </td>
+    </tr>
+
+
+    </tbody>
+</table>
+<table class="table" style="width: 1500px; margin-left: 18px;" id="total">
+    <thead>
+
+    <tr>
+        <td class="col-md-1 mb-3" scope="col" style="width: 30px;"> </td>
+        <td class="col-md-1 mb-3" scope="col" style="width: 90px;"> </td>
+        <td class="col-md-7 mb-3" scope="col" style=" margin-left: -20px;"><b>TOTAL AMOUNT</b></td>
+        <td class="col-md-1 mb-3" scope="col" style="width: 90px;  margin-left: -20px;"><b>{{total}}</b></td>
+
+    </tr>
+
+    </thead>
+</table>
+
+
+</body>
+</html>

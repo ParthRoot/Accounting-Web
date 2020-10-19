@@ -1,0 +1,223 @@
+{% if msg %}
+<script>
+    alert('{{ msg }}');
+</script>
+{% endif %}
+<script type="text/javascript">
+    function mult() {
+        var a = parseFloat(entry.value)
+        var b = parseFloat(exit.value)
+        var c = document.getElementById("bs").value;
+
+        if (c == "Buy") {
+            p = b - a;
+            document.getElementById("plt").value=p;
+        } else {
+            s = a - b;
+            document.getElementById("plt").value=s;
+        }
+
+
+
+
+
+    }
+
+
+</script>
+<!--
+
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Trading Journal Entry</title>
+
+
+</head>
+
+<body style="font-family: Time New Roman; color: #000080;">
+
+<form action="post_tj" method="post" name="myform" onchange="mult();">
+    {% csrf_token %}
+    <p align="center"><b>
+        <!-- <font size="6">J</font> -->
+        <br><label style="font-size:30px;">JAIMIN PATEL OFFICE</label>
+        <center>Gujarat, India</font><br>Official Home Page</center>
+    </b>
+        <font size="1">&nbsp;</font>
+    </p>
+    <hr style="width:98%; margin-top:-27px; border-width: 2px; background-color: #000080;">
+    </br>
+    <nav class="navbar navbar-expand-lg navbar-light   mx-3" style="margin-top: -40px;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" style="color: #000080;" href="http://127.0.0.1:8000/accounting">Home <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #000080;" href="http://127.0.0.1:8000/accounting/about">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ledger
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <a class="dropdown-item" href="http://127.0.0.1:8000/accounting/ledgerlogin">General Ledger</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="http://127.0.0.1:8000/accounting/tjledgerlogin">Trading Journal
+                            Ledger</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #000080;" href="http://127.0.0.1:8000/accounting/voucherslogin">Vaouchers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #000080;" href="http://127.0.0.1:8000/accounting/tjlogin">Trading
+                        Journal</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Request
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="http://127.0.0.1:8000/accounting/creditlogin">Credit</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="http://127.0.0.1:8000/accounting/debitlogin">Debit</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="http://127.0.0.1:8000/accounting/tjcreditlogin">Trading Journal
+                            Credit</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="http://127.0.0.1:8000/accounting/tjdebitlogin">Trading Journal
+                            Debit</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #000080;" href="http://127.0.0.1:8000/accounting/reportlogin">Reports</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <hr style="width:98%; margin-top:0px; border-width: 2px; background-color: #000080;">
+    <center><label style="font-size: 18px;"><b>Trading Journal Entry</b></label></center>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label style="font-size: 16px; margin-left: 120px;">Select Date</label>
+                <input type="date" required="" class="form-control" name="date"
+                       style="margin-left: 120px; width: 130px;"/>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label style="font-size: 16px; margin-left: 120px;">Select Time</label>
+                <input type="time" class="form-control" required="" name="time"
+                       style="margin-left: 120px; width: 130px;"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label style="font-size: 16px; margin-left: 120px;">Script</label>
+                <input type="text" class="form-control" required="" name="script"
+                       style="text-transform:uppercase; margin-left: 120px; width: 350px;"/>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label style="font-size: 16px; margin-left: 120px;">Quantity</label>
+                <input type="int" class="form-control" required="" id="quantity" name="quantity" onkeyup="mult(this.q);"
+                       maxlength="10"
+                       style="margin-left: 120px; width: 130px;"/>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="bs1" id="bs1"
+                       style="font-size: 16px; margin-left: 120px; margin-top: -25px;">Buy/Sell</label>
+                <select class="form-control" onchange="ddlselect();" name="bs" id="bs"
+                        style="width: 130px; margin-left: 120px; margin-top: -1px;" required>
+                    <option value="Buy">Buy</option>
+                    <option value="Sell">Sell</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label style="font-size: 16px; margin-left: 120px;">Entry</label>
+                <input type="float" class="form-control" required="" id="entry" name="entry"
+                       style="margin-left: 120px; width: 130px;"/>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label style="font-size: 16px; margin-left: 120px;">StopLoss</label>
+                <input type="float" class="form-control" name="sl" required="" maxlength="10"
+                       style="margin-left: 120px; width: 130px;"/>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label style="font-size: 16px; margin-left: 120px;">Traling Sl</label>
+                <input type="float" class="form-control" name="tsl" required=""
+                       style="margin-left: 120px; width: 130px;"/>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label style="font-size: 16px; margin-left: 120px;">Exit</label>
+                <input type="float" class="form-control" required="" id="exit" name="exit"
+                       style="margin-left: 120px; width: 130px;"/>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label style="font-size: 16px; margin-left: 120px;">P&L Before Tax</label>
+                <input type="float" class="form-control" required="" onclick="mult()" id="plt" name="plt"
+                       style="margin-left: 120px; width: 130px;"/>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label style="font-size: 16px; margin-left: 120px;">P&L</label>
+                <input type="text" maxlength="10" class="form-control" id="pl" name="pl"
+                       style="margin-left: 120px; width: 130px;"/>
+            </div>
+
+
+        </div>
+        <button type="submit" name="save" class="btn btn-primary" style="width: 100px; margin-left: 520px;">Save
+        </button>
+
+    </div>
+
+    <hr style="width:98%; margin-top: 37px; border-width: 2px; background-color: #000080;">
+    <div class="mx-3">
+        <dt>
+            <font style="font-size: 16.5px;">Copyright © 2020-2021<b> Jaimin Patel Office</b></font>
+        </dt>
+    </div>
+
+</form>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

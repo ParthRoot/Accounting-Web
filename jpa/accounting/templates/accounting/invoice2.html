@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>pdf</title>
+
+
+    <style>
+        .head1 {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .head2 {
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        .head3 {
+            font-size: 15px;
+            font-weight: normal;
+        }
+
+        .table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 3px;
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+{% csrf_token %}
+<center style="font-size: 25px;">
+    <div class="head1">
+        Jaimin Patel Office
+    </div>
+    <div class="head2">
+        Payment Voucher
+    </div>
+</center>
+<div class="head3">
+    <b>Date:</b> {{y}} <br/>
+    <b>Casher:</b> &nbsp;Jaimin Patel Office
+</div>
+<hr/>
+<br/>
+
+
+<table class="table">
+
+
+    <thead>
+
+    <tr style="font-size: 13px;">
+        <th class="col-md-1 mb-3" scope="col">No.</th>
+        <th class="col-md-1 mb-3" scope="col">Date</th>
+        <th class="col-md-7 mb-3" scope="col">Script</th>
+        <th class="col-md-1 mb-3" scope="col">Amount</th>
+        <th class="col-md-1 mb-3" scope="col">Details</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            1
+        </td>
+        <td>{{Date}}
+        </td>
+        <td>
+            {{Script}}
+        </td>
+        <td>
+            {{VAmount}}
+        </td>
+        <td>
+            {{Details}}
+        </td>
+    </tr>
+    </tbody>
+</table>
+<table class="table" style="width: 1500px; margin-left: 18px;" id="total">
+    <thead>
+
+    <tr>
+        <th class="col-md-1 mb-3" scope="col"> </th>
+        <th class="col-md-1 mb-3" scope="col"> </th>
+        <th class="col-md-1 mb-3" scope="col"> </th>
+        <th class="col-md-7 mb-3" scope="col">{{VAmount}}</th>
+        <th class="col-md-7 mb-3" scope="col"> </th>
+
+
+    </tr>
+
+    </thead>
+</table>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>{{z1}}</title>
+
+
+    <style>
+        .head1 {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .head2 {
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        .head3 {
+            font-size: 15px;
+            font-weight: normal;
+        }
+
+        .table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 3px;
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+{% csrf_token %}
+<center style="font-size: 25px;">
+    <div class="head1">
+        Jaimin Patel Office
+    </div>
+    <div class="head2">
+        {{z}}
+    </div>
+</center>
+<div class="head3">
+    <b>Date:</b>{{y}}<br/>
+    <b>Casher:</b> &nbsp;Jaimin Patel Office
+</div>
+<hr/>
+<br/>
+
+
+<table class="table">
+
+
+    <thead>
+
+    <tr style="font-size: 13px;">
+        <th class="col-md-1 mb-3" scope="col" style="width: 30px;">No.</th>
+        <th class="col-md-1 mb-3" scope="col" style="width: 90px;">Date</th>
+        <th class="col-md-7 mb-3" scope="col" style="width: 310px;">Script</th>
+        <th class="col-md-1 mb-3" scope="col" style="width: 90px;">Debit</th>
+        <th class="col-md-1 mb-3" scope="col" style="width: 90px;">Credit</th>
+        <th class="col-md-4 mb-3" scope="col" style="width: 110px;">Running Balance</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{% for j in count %}{{j}}
+            <hr>
+            {% endfor %}
+        </td>
+        <td>{% for j in date %}{{j}}
+            <hr>
+            {% endfor %}
+        </td>
+        <td>{% for j in bill %}{{j}}
+            <hr>
+            {% endfor %}
+        </td>
+        <td>{% for j in l %}{{j}}
+            <hr>
+            {% endfor %}
+        </td>
+        <td>{% for j in k %}{{j}}
+            <hr>
+            {% endfor %}
+        </td>
+        <td>{% for j in rnbl %}{{j}}
+            <hr>
+            {% endfor %}
+        </td>
+    </tr>
+    </tbody>
+</table>
+<table class="table" style="width: 1500px; margin-left: 18px;" id="total">
+    <thead>
+
+    <tr>
+        <td  style="width: 30px;"> </td>
+        <td  style="width: 90px;"> </td>
+        <td  style="width: 310px;  margin-left: -20px;"><B>TOTAL AMOUNT</B></td>
+        <td  style="width: 90px; margin-left: -20px;"><b>{{dsum}}</b></td>
+        <td  style="width: 90px; margin-left: -20px;"><b>{{csum}}</b></td>
+        <td  style="width: 110px; margin-left: -20px;"><b>{{rn}}</b></td>
+
+    </tr>
+
+    </thead>
+</table>
+</body>
+</html>
